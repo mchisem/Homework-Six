@@ -1,0 +1,49 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    background-image: linear-gradient(60deg, grey, gray);
+
+}
+
+/*navbar*/
+.navbar.navbar-dark.bg-dark {
+    background-color: teal !important;
+    justify-content: center !important;
+    margin-bottom: 20px !important;
+}
+
+/*INPUT CONTAINER*/
+h1 {
+    color: white;
+}
+
+input {
+    height: 48px !important;
+    float: left !important;
+    }
+
+/*button*/
+img {
+    height: 32px !important;
+    margin-top: 5px !important;
+    margin-bottom: 5px !important;
+    width: 65px !important;
+    float: left !important;
+}
+
+#search {
+    border: 2px solid black;
+    background-color: green;
+    width: 100%;
+}
+
+.col-4 {
+    border: 2px solid darkblue;
+    background-color: white;
+}
+
+#weather {
+    border: 2px solid black;
+}

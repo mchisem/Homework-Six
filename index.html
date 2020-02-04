@@ -11,13 +11,19 @@
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 
 <body>
-    <div class="container">
-        <div class="row">
-          <div class="col-9">.col-9</div>
-          <div class="col-4">.col-4<br>Since 9 + 4 = 13 &gt; 12, this 4-column-wide div gets wrapped onto a new line as one contiguous unit.</div>
-          <div class="col-6">.col-6<br>Subsequent columns continue along the new line.</div>
+
+    <nav class="navbar navbar-dark bg-dark">
+        <h1>Weather Dasboard!</h1>
+      </nav>
+
+    <div class="container" id="search">
+        <div class="col-4"><h2>Search for a City:</h2><input type="text"><button id="btn"><img src="image\search.webp"></button><br><div>
+        <div class="city" id="first">maybe I need to put something in here to format it properly.</div>
+        <div class="container" id="weather">
+            <div class="col-5"></div>
         </div>
-      </div>
+    </div>
+    
     
 </body>
 </html>
