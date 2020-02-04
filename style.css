@@ -2,48 +2,41 @@
     box-sizing: border-box;
 }
 
-body {
-    background-image: linear-gradient(60deg, grey, gray);
-
-}
-
-/*navbar*/
 .navbar.navbar-dark.bg-dark {
-    background-color: teal !important;
+    background-image: url("C:/Users/mayac/Desktop/weather.jpg") !important;
     justify-content: center !important;
     margin-bottom: 20px !important;
+    color: white !important;
 }
 
-/*INPUT CONTAINER*/
-h1 {
-    color: white;
-}
-
-input {
-    height: 48px !important;
-    float: left !important;
-    }
-
-/*button*/
-img {
-    height: 32px !important;
-    margin-top: 5px !important;
-    margin-bottom: 5px !important;
-    width: 65px !important;
-    float: left !important;
-}
-
-#search {
+#search-container {
     border: 2px solid black;
-    background-color: green;
-    width: 100%;
+    float: left;
+    width: 470px;
+    padding: 10px;
+    margin-left: 10px;
 }
 
-.col-4 {
-    border: 2px solid darkblue;
-    background-color: white;
+.btn {
+    background-color: hotpink !important;
+}
+
+#weather-container {
+    border: 3px solid white;
+    width: 1000px;
+    padding: 10px;
+    float: right;
 }
 
 #weather {
-    border: 2px solid black;
+    border: 2px solid aquamarine;
+    padding: 10px;
+}
+
+#five-day {
+    padding: 10px;
+}
+
+.col {
+    border: 2px solid white; 
 }
