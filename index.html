@@ -12,35 +12,43 @@
 
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment-with-locales.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 
 <body>
-    <nav class="navbar navbar-dark bg-dark">
-        <div class="w3-container w3-center w3-animate-top">
-            <h1>Weather Dasboard!</h1>
+    <div class="w3-container w3-center w3-animate-top">
+    <nav class="navbar navbar-light bg-light">
+        <span class="navbar-brand mb-0 h1"><h1>Weather Dashboard!</h1></span>
+        <i class="material-icons" style="color: white;">cloud</i>
+        <div class="container" id="date">
+        <div type="text" class="time"></div>
         </div>
-      </nav>
-
-    <div class="container" id="search-container">
-        <h2>Search for a City:</h2>
-        <input type="text">
-        <button type="submit" class="btn">
-            <i class="fa fa-search"></i>
-        </button>
+      </nav>  
     </div>
 
-    <div class="container" id="weather-container">
-        <section id="weather">
-        </section>
-        <div id="five-day">
-            <h2>5-day Forecast:</h2>
-            <section class="row row-cols-1 row-cols-sm-2 row-cols-md-5">
-                <div class="col">Column</div>
-                <div class="col">Column</div>
-                <div class="col">Column</div>
-                <div class="col">Column</div>
-                <div class="col">Column</div>
-            </section>
+      <div class="wrapper">
+        <div id="search">
+            <h2>Search your City:</h2>
+            <input type="text" class="city"><button class="btn"><i class="material-icons">search</i></button>
         </div>
-    </div>
+
+        <div id="location">Weather
+            <h2>five day forecast</h2>
+            <div class="container">
+            <div class="row">
+                <div class="column">1</div>
+                <div class="column">2</div>
+                <div class="column">3</div>
+                <div class="column">4</div>
+                <div class="column">5</div>
+            </div>
+            </div>
+        </div>
+      </div>
+<script rel="scriptsheet" src="style.js"></script>
 </body>
 </html>
