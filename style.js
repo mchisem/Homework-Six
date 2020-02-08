@@ -2,16 +2,16 @@
 $('.time').text(moment().format("dddd, MMM Do, YYYY")); 
 
 //api url//
-var querURL = "api.openweathermap.org/data/2.5/forecast?q=" + cityname + state + "&appid=fa0bccc8";
+var city = "";
+var state = "";
+var querURL = "api.openweathermap.org/data/2.5/forecast?q=" + city + state + "&appid=fa0bccc8";
 
 $(".btn").on('click', function(){
-    //console.log("hello");
-    var city = $(".city").val();
-    localStorage.setItem('city', city);
+    console.log("hello");
+    var cityValue = $(".city").val();
+    localStorage.setItem('city', cityValue);
 
-    var savedCity = $("<button>").text(city);
-
-    $(".city").append(savedCity);
 })
 
 
+ 
