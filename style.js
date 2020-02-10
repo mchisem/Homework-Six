@@ -15,7 +15,7 @@ $(".btn").on('click', function(){
 })
 
 // function with the URL we need to query the database
-function weatherDaily(cityValue) {
+function weatherDaily(cityValue){
 
     var queryURL = "https://api.openweathermap.org/data/2.5/weather?q="+cityValue+"&appid=94fb4992412a398a9fb2333272321439"
 
