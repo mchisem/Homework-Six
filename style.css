@@ -11,15 +11,14 @@
 
 
 /*header*/
-.w3-container.w3-center.w3-animate-top {
-   background-image: linear-gradient(blue, cornflowerblue);
+#title {
+    justify-content: center;
 }
 
 .navbar.navbar-light.bg-light {
     justify-content: center !important;
     margin-bottom: 5px;
     background-image: linear-gradient(blue, cornflowerblue);
-    
 }
 
 h1,
@@ -41,14 +40,14 @@ h2 {
   #search, #location {
     float: left;
     margin-bottom: 10px;
-    border: 2px solid black;
+    /* border: 2px solid black; */
   }
   
   #search {
     width: 400px;
     margin-right: 65px;
     padding: 20px;
-    background-color: darkblue;
+    /* background-color: darkblue; */
   }
   
 .column {
