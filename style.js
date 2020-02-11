@@ -5,7 +5,8 @@ $('.time').text(moment().format("dddd, MMM Do, YYYY"));
 // var APIKey = "94fb4992412a398a9fb2333272321439";
 
 //on click function/ local storage of city value
-$(".btn").on('click', function(){
+$(".btn").on('click', function(event){
+    event.preventDefault();
     console.log("good job!");
     var city = $(".city").val().trim();
     localStorage.setItem('city', city);
@@ -22,13 +23,10 @@ function weatherDaily(city){
     $.ajax({
         url: queryURL,
         method: "GET"
-      }).then(function(response){
-
-        console.log(response);
+      }).then(function(response) {
+        // console.log(weatherDaily);
+        // console.log(response);
+        // console.log(response.name);
       })
+      
 }
-
-//dynamically generating city list
-$(".btn").on('click', function(){
-
-})
