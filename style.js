@@ -31,9 +31,16 @@ function weatherDaily(city){
         url: queryURL,
         method: "GET"
       }).then(function(response) {
-        //creating variables
+        //variables for response array//
         var nameCity = response.name;
         //console.log(nameCity);
+            var iconUrl = "http://openweathermap.org/img/wn/";
+            var iconCity = response.weather[0].icon; 
+            var iconPng = "@2x.png";
+            var icon = iconUrl + iconCity + iconPng;
+            var iconImg = $("<img>");
+            iconImg.attr("src", icon);
+            console.log(iconImg);
         var tempCity = response.main.temp;
         //change the temp from celsius to farenheight 
             var fDegree = ((tempCity - 273.15) * 1.8 + 32).toFixed(0);
@@ -43,9 +50,10 @@ function weatherDaily(city){
         var windCity = response.wind.speed;
         // console.log(windCity);
         $(".city-name").append(nameCity);
+        $(".city-name").append(iconImg);
         $(".temp").append("Temperature: " + fDegree + "°F");
-        $(".humid").append("Humidity: " + humidCity);
-        $(".wind").append("Wind Speed: " + windCity);
+        $(".humid").append("Humidity: " + humidCity + "%");
+        $(".wind").append("Wind Speed: " + windCity + "MPH");
 
         //adds city names dynamically, one after the other
         function init() {
