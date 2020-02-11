@@ -24,9 +24,16 @@ function weatherDaily(city){
         url: queryURL,
         method: "GET"
       }).then(function(response) {
-        // console.log(weatherDaily);
         // console.log(response);
-        // console.log(response.name);
+        var nameCity = (response.name);
+        // console.log(nameArray);
+        var tempCity = (response.main.temp);
+        // console.log(tempArray);
+        var humidCity = (response.main.humidity);
+        // console.log(humidCity);
+        var windCity = (response.wind.speed);
+        // console.log(windCity);
       })
       
 }
+
