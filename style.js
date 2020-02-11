@@ -15,8 +15,7 @@ $(".btn").on('click', function(event){
 
 })  
 
-
-// function with the URL we need to query the database
+// Daily Weather function with the URL we need to query the database
 function weatherDaily(city){
 
         // remove previous weather data
@@ -27,7 +26,7 @@ function weatherDaily(city){
 
     var queryURL = "https://api.openweathermap.org/data/2.5/weather?q="+city+"&appid=94fb4992412a398a9fb2333272321439"
 
-    // Here we run our AJAX call to the OpenWeatherMap API info
+    // AJAX call to the OpenWeatherMap for Daily Weather
     $.ajax({
         url: queryURL,
         method: "GET"
@@ -36,22 +35,30 @@ function weatherDaily(city){
         var nameCity = response.name;
         //console.log(nameCity);
         var tempCity = response.main.temp;
+        //change the temp from celsius to farenheight 
+            var fDegree = ((tempCity - 273.15) * 1.8 + 32).toFixed(0);
         // console.log(tempCity);
         var humidCity = response.main.humidity;
         // console.log(humidCity);
         var windCity = response.wind.speed;
         // console.log(windCity);
-        $(".city-name").append(nameCity + " ");
-        $(".temp").append("Temperature: " + tempCity);
+        $(".city-name").append(nameCity);
+        $(".temp").append("Temperature: " + fDegree + "°F");
         $(".humid").append("Humidity: " + humidCity);
         $(".wind").append("Wind Speed: " + windCity);
 
+        //adds city names dynamically, one after the other
         function init() {
             var cityList = $("<button class='item'></button><br>").text(nameCity); 
             $("#city-list").prepend(cityList);
+
+            cityList.on('click', function(){
+                console.log("wow");
+             })
          }
  
          init();
+
 
       })
       
