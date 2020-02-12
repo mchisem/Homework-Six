@@ -40,16 +40,15 @@ h2 {
   #search, #location {
     float: left;
     margin-bottom: 10px;
+    margin-left: 100px;
     padding: 20px;
     color: white;
     justify-content: center;
-    /* border: 2px solid black; */
+    
   }
   
   #search {
-    width: 400px;
-    margin-right: 65px;
-    /* background-color: darkblue; */
+      margin-right: 100px;
   }
   
 .column {

@@ -9,10 +9,10 @@ $(".btn").on('click', function(event){
     event.preventDefault();
     console.log("good job!");
     var city = $(".city").val().trim();
-    localStorage.setItem('city', city);
+    // localStorage.setItem('city', city);
 
     weatherDaily(city);
-
+    fiveDay(city);
 })  
 
 // Daily Weather function with the URL we need to query the database
@@ -31,7 +31,7 @@ function weatherDaily(city){
         url: queryURL,
         method: "GET"
       }).then(function(response) {
-        //variables for response array//
+        //variables for daily weather response array//
         var nameCity = response.name;
         //console.log(nameCity);
             var iconUrl = "http://openweathermap.org/img/wn/";
@@ -40,7 +40,7 @@ function weatherDaily(city){
             var icon = iconUrl + iconCity + iconPng;
             var iconImg = $("<img>");
             iconImg.attr("src", icon);
-            console.log(iconImg);
+            // console.log(iconImg);
         var tempCity = response.main.temp;
         //change the temp from celsius to farenheight 
             var fDegree = ((tempCity - 273.15) * 1.8 + 32).toFixed(0);
@@ -49,6 +49,12 @@ function weatherDaily(city){
         // console.log(humidCity);
         var windCity = response.wind.speed;
         // console.log(windCity);
+        var lonCity = response.coord.lon;
+        //console.log(lonCity);
+        var latCity = response.coord.lat;
+        //console.log(latCity);
+        var index = (lonCity, latCity);
+        //console.log(index);
         $(".city-name").append(nameCity);
         $(".city-name").append(iconImg);
         $(".temp").append("Temperature: " + fDegree + "°F");
@@ -58,17 +64,58 @@ function weatherDaily(city){
         //adds city names dynamically, one after the other
         function init() {
             var cityList = $("<button class='item'></button><br>").text(nameCity); 
+
             $("#city-list").prepend(cityList);
 
+            localStorage.setItem('city-list', nameCity);
+    
             cityList.on('click', function(){
                 console.log("wow");
              })
          }
- 
          init();
 
-
+         
       })
-      
-}
 
+    }
+
+// //uv index function
+// function uvIndex(latCity, lonCity) {
+//     //http://api.openweathermap.org/data/2.5/uvi?appid=94fb4992412a398a9fb2333272321439&lat="37.75"&lon="-122.37"
+//     var IndexUrl = "http://api.openweathermap.org/data/2.5/uvi?appid=94fb4992412a398a9fb2333272321439&lat="+latCity+"&lon="+lonCity;
+   
+//     console.log(IndexUrl);
+
+//     $.ajax({
+//         url: IndexUrl,
+//         method: "GET"
+//     }).then(function(response){
+//         var uvValue = response.value;
+//         console.log(uvValue);
+//     })
+   
+// }
+
+
+//five day forecast funciton
+function fiveDay(city){
+    //api.openweathermap.org/data/2.5/forecast?q={city name}&appid={your api key}
+    //http://api.openweathermap.org/data/2.5/forecast?q=long+beach&appid=94fb4992412a398a9fb2333272321439
+    var fiveDayUrl = "http://api.openweathermap.org/data/2.5/forecast?q="+city+"&appid=94fb4992412a398a9fb2333272321439";
+
+    $.ajax({
+        url: fiveDayUrl,
+        method: "GET"
+    }).then(function(response){
+        // var title = $("<h2>Five-day Forecast:</h2>");
+        // console.log(title);
+        // //$("#five-day").append(title);
+
+        var dayOne = moment.unix(response.list[1].dt).utc().format("MMM Do, YYYY");
+        //console.log(dayOne);
+        $(".day-one").append(dayOne);
+
+    })
+
+}
