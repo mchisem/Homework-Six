@@ -70,13 +70,13 @@ function weatherDaily(city){
 
         //adds city names dynamically, one after the other
         function init() {
-            var cityList = $("<button class='item'></button><br>").css({"border":"none","padding":"10px", "color":"black","opacity":".8px"}).text(nameCity); 
+            var cityList = $("<button class='item'></button><br>").css({"border":"none","padding":"10px"}).text(nameCity); 
 
             // var button = $(".item");
             // $(".item").append(button).css({"color":"white"});
 
             var btnBorder = $("#city-list");
-            $("#city-list").append(btnBorder).css({"background-color":"#F0F0F0","border":"1px solid grey"});
+            $("#city-list").append(btnBorder).css({"background-color":"#F0F0F0"});
 
             $("#city-list").prepend(cityList);
 
