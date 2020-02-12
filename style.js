@@ -116,13 +116,33 @@ function fiveDay(city){
 
     //clear out previous five day data//
         $(".five-title").empty();
+        $(".first").empty();
+        $(".second").empty();
+        $(".third").empty();
+        $(".fourth").empty();
+        $(".fifth").empty();
+        $(".icon-one").empty();
+        $(".icon-two").empty();
+        $(".icon-three").empty();
+        $(".icon-four").empty();
+        $(".icon-five").empty();
+        $(".temp-one").empty();
+        $(".temp-two").empty();
+        $(".temp-three").empty();
+        $(".temp-four").empty();
+        $(".temp-five").empty();
+        $(".humid-one").empty();
+        $(".humid-two").empty();
+        $(".humid-three").empty();
+        $(".humid-four").empty();
+        $(".humid-five").empty();
 
         //background color for days//
         var background = $(".day");
         $(".day").append(background).css({"background-color":"darkblue", "padding":"15px"});
 
     //api.openweathermap.org/data/2.5/forecast?q={city name}&appid={your api key}
-    //http://api.openweathermap.org/data/2.5/forecast?q=long+beach&appid=94fb4992412a398a9fb2333272321439
+    //https://api.openweathermap.org/data/2.5/forecast?q=long+beach&appid=94fb4992412a398a9fb2333272321439
     var fiveDayUrl = "https://api.openweathermap.org/data/2.5/forecast?q="+city+"&appid=94fb4992412a398a9fb2333272321439";
 
     $.ajax({
@@ -133,24 +153,21 @@ function fiveDay(city){
         // console.log(title);
         $("#five-day").prepend(title);
 
-        // var line = $("<hr class='line'>");
-        // $("#five-day").prepend(line);
-
         //date variables//
         var dayOne = moment.unix(dataResponse.list[1].dt).utc().format("L");
-        $("#day-one").prepend(dayOne);
+        $(".first").prepend(dayOne);
         //console.log(dayOne);
         var dayTwo = moment.unix(dataResponse.list[9].dt).utc().format("L");
-        $("#day-two").prepend(dayTwo);
+        $(".second").prepend(dayTwo);
         //console.log(dayTwo);
         var dayThree = moment.unix(dataResponse.list[17].dt).utc().format("L");
-        $("#day-three").prepend(dayThree);
+        $(".third").prepend(dayThree);
         //console.log(dayThree);
         var dayFour = moment.unix(dataResponse.list[25].dt).utc().format("L");
-        $("#day-four").prepend(dayFour);
+        $(".fourth").prepend(dayFour);
         //console.log(dayFour);
         var dayFive = moment.unix(dataResponse.list[33].dt).utc().format("L");
-        $("#day-five").prepend(dayFive);
+        $(".fifth").prepend(dayFive);
 
         //icon variables//
         //day one//
@@ -163,7 +180,6 @@ function fiveDay(city){
         img.attr("src", icon);
 
         $(".icon-one").prepend(img);
-
 
         //day two//
         var cityTwo = dataResponse.list[2].weather[0].icon;
