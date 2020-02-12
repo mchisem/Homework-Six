@@ -112,9 +112,24 @@ function fiveDay(city){
         // console.log(title);
         // //$("#five-day").append(title);
 
-        var dayOne = moment.unix(response.list[1].dt).utc().format("MMM Do, YYYY");
+        var line = $("<hr>");
+        $("#five-day").prepend(line);
+
+        //date variables//
+        var dayOne = moment.unix(response.list[1].dt).utc().format("LL");
+        $("#day-one").append(dayOne);
         //console.log(dayOne);
-        $(".day-one").append(dayOne);
+        var dayTwo = moment.unix(response.list[9].dt).utc().format("LL");
+        $("#day-two").append(dayTwo);
+        //console.log(dayTwo);
+        var dayThree = moment.unix(response.list[17].dt).utc().format("LL");
+        $("#day-three").append(dayThree);
+        //console.log(dayThree);
+        var dayFour = moment.unix(response.list[25].dt).utc().format("LL");
+        $("#day-four").append(dayFour);
+        //console.log(dayFour);
+        var dayFive = moment.unix(response.list[33].dt).utc().format("LL");
+        $("#day-five").append(dayFive);
 
     })
 

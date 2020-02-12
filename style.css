@@ -37,22 +37,27 @@ h2 {
     margin: 0 auto;
   }
   
-  #search, #location {
+  #search, 
+  #location {
     float: left;
-    margin-bottom: 10px;
+    margin-bottom: 15px;
     margin-left: 100px;
     padding: 20px;
     color: white;
     justify-content: center;
-    
+   
   }
   
+  #five-day {
+    padding: 5px;
+  }
+
   #search {
-      margin-right: 100px;
+      margin-right: 70px;
   }
   
-.column {
-    margin: 5px;
+.day {
+    margin: 10px;
 }
   
 /*buttons*/
