@@ -1,6 +1,3 @@
-//I want the date to display always//
-$('.time').text(moment().format("dddd, MMM Do, YYYY")); 
-
 // Key Variable
  var APIKey = "94fb4992412a398a9fb2333272321439";
 
@@ -34,6 +31,10 @@ function weatherDaily(city){
         //variables for daily weather response array//
         var nameCity = response.name;
         //console.log(nameCity);
+        var date = response.dt;
+        //console.log(date);
+        var dayDate = moment.unix(date).format("L");
+        //console.log(dayDate);
             var iconUrl = "http://openweathermap.org/img/wn/";
             var iconCity = response.weather[0].icon; 
             var iconPng = "@2x.png";
@@ -55,7 +56,8 @@ function weatherDaily(city){
         //console.log(latCity);
         var index = (lonCity, latCity);
         //console.log(index);
-        $(".city-name").append(nameCity);
+        $(".city-name").append(nameCity + " ");
+        $(".city-name").append(" " + "(" + dayDate + ")"); 
         $(".city-name").append(iconImg);
         $(".temp").append("Temperature: " + fDegree + "°F");
         $(".humid").append("Humidity: " + humidCity + "%");
@@ -122,23 +124,23 @@ function fiveDay(city){
         // console.log(title);
         $("#five-day").prepend(title);
 
-       // var line = $("<hr class='line'>");
-        //$("#five-day").prepend(line);
+        var line = $("<hr class='line'>");
+        $("#five-day").prepend(line);
 
         //date variables//
-        var dayOne = moment.unix(dataResponse.list[1].dt).utc().format("LL");
+        var dayOne = moment.unix(dataResponse.list[1].dt).utc().format("L");
         $("#day-one").prepend(dayOne);
         //console.log(dayOne);
-        var dayTwo = moment.unix(dataResponse.list[9].dt).utc().format("LL");
+        var dayTwo = moment.unix(dataResponse.list[9].dt).utc().format("L");
         $("#day-two").prepend(dayTwo);
         //console.log(dayTwo);
-        var dayThree = moment.unix(dataResponse.list[17].dt).utc().format("LL");
+        var dayThree = moment.unix(dataResponse.list[17].dt).utc().format("L");
         $("#day-three").prepend(dayThree);
         //console.log(dayThree);
-        var dayFour = moment.unix(dataResponse.list[25].dt).utc().format("LL");
+        var dayFour = moment.unix(dataResponse.list[25].dt).utc().format("L");
         $("#day-four").prepend(dayFour);
         //console.log(dayFour);
-        var dayFive = moment.unix(dataResponse.list[33].dt).utc().format("LL");
+        var dayFive = moment.unix(dataResponse.list[33].dt).utc().format("L");
         $("#day-five").prepend(dayFive);
 
         //icon variables//
@@ -218,7 +220,25 @@ function fiveDay(city){
             $(".temp-five").prepend("Temp: " + f5 + "°F");
 
         //humidity variables//
+        //day one//
+        var humidOne = dataResponse.list[1].main.humidity;
+        $(".humid-one").append("Humidity: " + humidOne + "%");
 
+        //day two//
+        var humidTwo = dataResponse.list[2].main.humidity;
+        $(".humid-two").append("Humidity: " + humidTwo + "%");
+
+        //day three//
+        var humidThree = dataResponse.list[3].main.humidity;
+        $(".humid-three").append("Humidity: " + humidThree + "%");
+
+        //day four//
+        var humidFour = dataResponse.list[4].main.humidity;
+        $(".humid-four").append("Humidity: " + humidFour + "%");
+
+        //day five//
+        var humidFive = dataResponse.list[5].main.humidity;
+        $(".humid-five").append("Humidity: " + humidFive + "%");
       
     })
 

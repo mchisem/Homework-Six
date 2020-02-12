@@ -26,11 +26,6 @@ h2 {
     color: white;
 }
 
-#date {
-    justify-content: center;
-    color: white;
-}
-
 /*containers*/
 .wrapper {
     width: 100%;
@@ -42,18 +37,23 @@ h2 {
     float: left;
     margin-bottom: 15px;
     margin-left: 100px;
-    padding: 20px;
+    /* padding: 20px; */
     color: white;
     justify-content: center;
    
   }
   
+  #location {
+    margin-top: 0px;
+  }
+
   #five-day {
     padding: 0px;
   }
 
   #search {
       margin-right: 60px;
+      padding: 20px;
   }
   
 .row {
@@ -63,7 +63,6 @@ h2 {
 .day {
   margin: 15px;
 }
-
 
 /*buttons*/
 .btn {
