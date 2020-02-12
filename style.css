@@ -53,13 +53,17 @@ h2 {
   }
 
   #search {
-      margin-right: 70px;
+      margin-right: 60px;
   }
   
-.day {
+.row {
     margin: 10px;
 }
   
+.day {
+  margin: 15px;
+}
+
 /*buttons*/
 .btn {
     background-color: black !important;

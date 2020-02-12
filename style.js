@@ -100,6 +100,16 @@ function weatherDaily(city){
 
 //five day forecast funciton
 function fiveDay(city){
+
+    //clear out previous five day data//
+        $("#day-one").empty();
+        $("#day-two").empty();
+        $("#day-three").empty();
+        $("#day-four").empty();
+        $("#day-five").empty();
+        $("#five-title").empty();
+        //$(".line").empty();
+
     //api.openweathermap.org/data/2.5/forecast?q={city name}&appid={your api key}
     //http://api.openweathermap.org/data/2.5/forecast?q=long+beach&appid=94fb4992412a398a9fb2333272321439
     var fiveDayUrl = "http://api.openweathermap.org/data/2.5/forecast?q="+city+"&appid=94fb4992412a398a9fb2333272321439";
@@ -107,30 +117,46 @@ function fiveDay(city){
     $.ajax({
         url: fiveDayUrl,
         method: "GET"
-    }).then(function(response){
-        // var title = $("<h2>Five-day Forecast:</h2>");
+    }).then(function(dataResponse){
+        var title = $("<h2 id='five-title'>Five-day Forecast:</h2>");
         // console.log(title);
-        // //$("#five-day").append(title);
+        $("#five-day").prepend(title);
 
-        var line = $("<hr>");
-        $("#five-day").prepend(line);
+       // var line = $("<hr class='line'>");
+        //$("#five-day").prepend(line);
 
         //date variables//
-        var dayOne = moment.unix(response.list[1].dt).utc().format("LL");
+        var dayOne = moment.unix(dataResponse.list[1].dt).utc().format("LL");
         $("#day-one").append(dayOne);
         //console.log(dayOne);
-        var dayTwo = moment.unix(response.list[9].dt).utc().format("LL");
+        var dayTwo = moment.unix(dataResponse.list[9].dt).utc().format("LL");
         $("#day-two").append(dayTwo);
         //console.log(dayTwo);
-        var dayThree = moment.unix(response.list[17].dt).utc().format("LL");
+        var dayThree = moment.unix(dataResponse.list[17].dt).utc().format("LL");
         $("#day-three").append(dayThree);
         //console.log(dayThree);
-        var dayFour = moment.unix(response.list[25].dt).utc().format("LL");
+        var dayFour = moment.unix(dataResponse.list[25].dt).utc().format("LL");
         $("#day-four").append(dayFour);
         //console.log(dayFour);
-        var dayFive = moment.unix(response.list[33].dt).utc().format("LL");
+        var dayFive = moment.unix(dataResponse.list[33].dt).utc().format("LL");
         $("#day-five").append(dayFive);
 
+        //icon variables//
+        var fiveIcon = "http://openweathermap.org/img/wn/";
+        var cityIcon = dataResponse.list[1].weather[0].icon; 
+        var iconAt = "@2x.png";
+
+        var icon = fiveIcon + cityIcon + iconAt;
+        var img = $("<img>");
+        img.attr("src", icon);
+
+        //temp variables//
+        //var temp = dataResponse.list[1].main.temp;
+        //change the temp from celsius to farenheight 
+            //var f = ((temp - 273.15) * 1.8 + 32).toFixed(0);
+            //$("#temp-one").append("Temp: " + f + "°F");
+      
+            $("#temp-one").prepend("Hello!");
     })
 
 }
