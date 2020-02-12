@@ -102,13 +102,13 @@ function weatherDaily(city){
 function fiveDay(city){
 
     //clear out previous five day data//
-        // $("#day-one").empty();
-        // $("#day-two").empty();
+        // $(dayOne).empty();
         // $("#day-three").empty();
         // $("#day-four").empty();
         // $("#day-five").empty();
         // $("#five-title").empty();
         //$(".line").empty();
+        $(".five-title").empty();
 
     //api.openweathermap.org/data/2.5/forecast?q={city name}&appid={your api key}
     //http://api.openweathermap.org/data/2.5/forecast?q=long+beach&appid=94fb4992412a398a9fb2333272321439
@@ -118,7 +118,7 @@ function fiveDay(city){
         url: fiveDayUrl,
         method: "GET"
     }).then(function(dataResponse){
-        var title = $("<h2 id='five-title'>Five-day Forecast:</h2>");
+        var title = $("<h2 class='five-title'>Five-day Forecast:</h2>");
         // console.log(title);
         $("#five-day").prepend(title);
 
@@ -187,12 +187,39 @@ function fiveDay(city){
         $(".icon-five").prepend(imgFive);
 
         //temp variables//
-        //var temp = dataResponse.list[1].main.temp;
+        //day one//
+        var temp = dataResponse.list[1].main.temp;
         //change the temp from celsius to farenheight 
-            //var f = ((temp - 273.15) * 1.8 + 32).toFixed(0);
-            //$("#temp-one").append("Temp: " + f + "°F");
-      
+            var f = ((temp - 273.15) * 1.8 + 32).toFixed(0);
+            $(".temp-one").prepend("Temp: " + f + "°F");
+        
+        //day two//
+        var temp2 = dataResponse.list[2].main.temp;
+        //change the temp from celsius to farenheight 
+            var f2 = ((temp2 - 273.15) * 1.8 + 32).toFixed(0);
+            $(".temp-two").prepend("Temp: " + f2 + "°F");
+        
+        //day three//
+        var temp3 = dataResponse.list[3].main.temp;
+        //change the temp from celsius to farenheight 
+            var f3 = ((temp3 - 273.15) * 1.8 + 32).toFixed(0);
+            $(".temp-three").prepend("Temp: " + f3 + "°F");
+        
+        //day four//
+        var temp4 = dataResponse.list[4].main.temp;
+        //change the temp from celsius to farenheight 
+            var f4 = ((temp4 - 273.15) * 1.8 + 32).toFixed(0);
+            $(".temp-four").prepend("Temp: " + f4 + "°F");
 
+        //day five//
+        var temp5 = dataResponse.list[5].main.temp;
+        //change the temp from celsius to farenheight 
+            var f5 = ((temp5 - 273.15) * 1.8 + 32).toFixed(0);
+            $(".temp-five").prepend("Temp: " + f5 + "°F");
+
+        //humidity variables//
+
+      
     })
 
 }
