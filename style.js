@@ -102,12 +102,12 @@ function weatherDaily(city){
 function fiveDay(city){
 
     //clear out previous five day data//
-        $("#day-one").empty();
-        $("#day-two").empty();
-        $("#day-three").empty();
-        $("#day-four").empty();
-        $("#day-five").empty();
-        $("#five-title").empty();
+        // $("#day-one").empty();
+        // $("#day-two").empty();
+        // $("#day-three").empty();
+        // $("#day-four").empty();
+        // $("#day-five").empty();
+        // $("#five-title").empty();
         //$(".line").empty();
 
     //api.openweathermap.org/data/2.5/forecast?q={city name}&appid={your api key}
@@ -127,21 +127,22 @@ function fiveDay(city){
 
         //date variables//
         var dayOne = moment.unix(dataResponse.list[1].dt).utc().format("LL");
-        $("#day-one").append(dayOne);
+        $("#day-one").prepend(dayOne);
         //console.log(dayOne);
         var dayTwo = moment.unix(dataResponse.list[9].dt).utc().format("LL");
-        $("#day-two").append(dayTwo);
+        $("#day-two").prepend(dayTwo);
         //console.log(dayTwo);
         var dayThree = moment.unix(dataResponse.list[17].dt).utc().format("LL");
-        $("#day-three").append(dayThree);
+        $("#day-three").prepend(dayThree);
         //console.log(dayThree);
         var dayFour = moment.unix(dataResponse.list[25].dt).utc().format("LL");
-        $("#day-four").append(dayFour);
+        $("#day-four").prepend(dayFour);
         //console.log(dayFour);
         var dayFive = moment.unix(dataResponse.list[33].dt).utc().format("LL");
-        $("#day-five").append(dayFive);
+        $("#day-five").prepend(dayFive);
 
         //icon variables//
+        //day one//
         var fiveIcon = "http://openweathermap.org/img/wn/";
         var cityIcon = dataResponse.list[1].weather[0].icon; 
         var iconAt = "@2x.png";
@@ -150,13 +151,48 @@ function fiveDay(city){
         var img = $("<img>");
         img.attr("src", icon);
 
+        $(".icon-one").prepend(img);
+
+
+        //day two//
+        var cityTwo = dataResponse.list[2].weather[0].icon;
+        var iconTwo = fiveIcon + cityTwo + iconAt;
+        var imgTwo = $("<img>");
+        imgTwo.attr("src", iconTwo);
+
+        $(".icon-two").prepend(imgTwo);
+
+        //day three//
+        var cityThree = dataResponse.list[3].weather[0].icon;
+        var iconThree = fiveIcon + cityThree + iconAt;
+        var imgThree = $("<img>");
+        imgThree.attr("src", iconThree);
+
+        $(".icon-three").prepend(imgThree);
+
+        //day four//
+        var cityFour = dataResponse.list[4].weather[0].icon;
+        var iconFour = fiveIcon + cityFour + iconAt;
+        var imgFour = $("<img>");
+        imgFour.attr("src", iconFour);
+
+        $(".icon-four").prepend(imgFour);
+
+        //day five//
+        var cityFive = dataResponse.list[5].weather[0].icon;
+        var iconFive = fiveIcon + cityFive + iconAt;
+        var imgFive = $("<img>");
+        imgFive.attr("src", iconFive);
+
+        $(".icon-five").prepend(imgFive);
+
         //temp variables//
         //var temp = dataResponse.list[1].main.temp;
         //change the temp from celsius to farenheight 
             //var f = ((temp - 273.15) * 1.8 + 32).toFixed(0);
             //$("#temp-one").append("Temp: " + f + "°F");
       
-            $("#temp-one").prepend("Hello!");
+
     })
 
 }
