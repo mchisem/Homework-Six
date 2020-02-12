@@ -72,9 +72,6 @@ function weatherDaily(city){
         function init() {
             var cityList = $("<button class='item'></button><br>").css({"border":"none","padding":"10px"}).text(nameCity); 
 
-            // var button = $(".item");
-            // $(".item").append(button).css({"color":"white"});
-
             var btnBorder = $("#city-list");
             $("#city-list").append(btnBorder).css({"background-color":"#F0F0F0"});
 
