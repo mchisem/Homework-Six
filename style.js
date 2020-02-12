@@ -40,7 +40,7 @@ function weatherDaily(city){
         //console.log(date);
         var dayDate = moment.unix(date).format("L");
         //console.log(dayDate);
-            var iconUrl = "http://openweathermap.org/img/wn/";
+            var iconUrl = "https://openweathermap.org/img/wn/";
             var iconCity = response.weather[0].icon; 
             var iconPng = "@2x.png";
             var icon = iconUrl + iconCity + iconPng;
@@ -95,8 +95,8 @@ function weatherDaily(city){
 
 // //uv index function
 // function uvIndex(latCity, lonCity) {
-//     //http://api.openweathermap.org/data/2.5/uvi?appid=94fb4992412a398a9fb2333272321439&lat="37.75"&lon="-122.37"
-//     var IndexUrl = "http://api.openweathermap.org/data/2.5/uvi?appid=94fb4992412a398a9fb2333272321439&lat="+latCity+"&lon="+lonCity;
+//     //https://api.openweathermap.org/data/2.5/uvi?appid=94fb4992412a398a9fb2333272321439&lat="37.75"&lon="-122.37"
+//     var IndexUrl = "https://api.openweathermap.org/data/2.5/uvi?appid=94fb4992412a398a9fb2333272321439&lat="+latCity+"&lon="+lonCity;
    
 //     console.log(IndexUrl);
 
@@ -115,12 +115,6 @@ function weatherDaily(city){
 function fiveDay(city){
 
     //clear out previous five day data//
-        // $(dayOne).empty();
-        // $("#day-three").empty();
-        // $("#day-four").empty();
-        // $("#day-five").empty();
-        // $("#five-title").empty();
-        //$(".line").empty();
         $(".five-title").empty();
 
         //background color for days//
@@ -129,7 +123,7 @@ function fiveDay(city){
 
     //api.openweathermap.org/data/2.5/forecast?q={city name}&appid={your api key}
     //http://api.openweathermap.org/data/2.5/forecast?q=long+beach&appid=94fb4992412a398a9fb2333272321439
-    var fiveDayUrl = "http://api.openweathermap.org/data/2.5/forecast?q="+city+"&appid=94fb4992412a398a9fb2333272321439";
+    var fiveDayUrl = "https://api.openweathermap.org/data/2.5/forecast?q="+city+"&appid=94fb4992412a398a9fb2333272321439";
 
     $.ajax({
         url: fiveDayUrl,
@@ -160,7 +154,7 @@ function fiveDay(city){
 
         //icon variables//
         //day one//
-        var fiveIcon = "http://openweathermap.org/img/wn/";
+        var fiveIcon = "https://openweathermap.org/img/wn/";
         var cityIcon = dataResponse.list[1].weather[0].icon; 
         var iconAt = "@2x.png";
 
