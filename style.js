@@ -20,6 +20,11 @@ function weatherDaily(city){
         $(".temp").empty();
         $(".humid").empty();
         $(".wind").empty();
+        
+
+        //border//
+        var border = $("#weather-day");
+        $("#weather-day").append(border).css({"border-bottom":"1px solid white"});
 
     var queryURL = "https://api.openweathermap.org/data/2.5/weather?q="+city+"&appid=94fb4992412a398a9fb2333272321439"
 
@@ -61,11 +66,17 @@ function weatherDaily(city){
         $(".city-name").append(iconImg);
         $(".temp").append("Temperature: " + fDegree + "°F");
         $(".humid").append("Humidity: " + humidCity + "%");
-        $(".wind").append("Wind Speed: " + windCity + "MPH");
+        $(".wind").append("Wind Speed: " + windCity + "MPH").css({"margin-bottom":"30px"});
 
         //adds city names dynamically, one after the other
         function init() {
-            var cityList = $("<button class='item'></button><br>").text(nameCity); 
+            var cityList = $("<button class='item'></button><br>").css({"border":"none","padding":"10px", "color":"black","opacity":".8px"}).text(nameCity); 
+
+            // var button = $(".item");
+            // $(".item").append(button).css({"color":"white"});
+
+            var btnBorder = $("#city-list");
+            $("#city-list").append(btnBorder).css({"background-color":"#F0F0F0","border":"1px solid grey"});
 
             $("#city-list").prepend(cityList);
 
@@ -112,6 +123,10 @@ function fiveDay(city){
         //$(".line").empty();
         $(".five-title").empty();
 
+        //background color for days//
+        var background = $(".day");
+        $(".day").append(background).css({"background-color":"darkblue", "padding":"15px"});
+
     //api.openweathermap.org/data/2.5/forecast?q={city name}&appid={your api key}
     //http://api.openweathermap.org/data/2.5/forecast?q=long+beach&appid=94fb4992412a398a9fb2333272321439
     var fiveDayUrl = "http://api.openweathermap.org/data/2.5/forecast?q="+city+"&appid=94fb4992412a398a9fb2333272321439";
@@ -124,8 +139,8 @@ function fiveDay(city){
         // console.log(title);
         $("#five-day").prepend(title);
 
-        var line = $("<hr class='line'>");
-        $("#five-day").prepend(line);
+        // var line = $("<hr class='line'>");
+        // $("#five-day").prepend(line);
 
         //date variables//
         var dayOne = moment.unix(dataResponse.list[1].dt).utc().format("L");
