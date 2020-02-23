@@ -7,6 +7,7 @@
     font-family: Helvetica;
     margin: 0;
     background-color: cornflowerblue !important;
+    /* background-image: linear-gradient(blue, cornflowerblue) !important; */
   }
 
 
@@ -18,7 +19,22 @@
 .navbar.navbar-light.bg-light {
     justify-content: center !important;
     margin-bottom: 5px;
-    background-image: linear-gradient(blue, cornflowerblue);
+    /* background-image: linear-gradient(blue, cornflowerblue); */
+    border: none;
+    background-color: transparent !important;
+}
+
+@media only screen and (max-width: 600px) {
+  .navbar.navbar-light.bg-light,
+  h1,
+  h2,
+  #title {
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    border: none;
+    background-color: transparent;
+  }
 }
 
 h1,
@@ -48,10 +64,24 @@ h2 {
       padding: 20px;
   }
 
+  @media only screen and (max-width: 600px) {
+    #search,
+    #location {
+      margin-left: 8%;
+      margin-right: 0;
+    }
+  }
+
   .city {
     margin-bottom: 25px;
   }
   
+  @media only screen and (max-width: 600px) {
+   .city-name {
+      margin-left: -8%;
+      margin-right: 0;
+    }
+  }
 .row {
     margin: 10px;
 }
@@ -66,5 +96,4 @@ h2 {
     color: white !important;
     margin-left: 5px !important;
     font-size: 5px !important;
-    
 }
